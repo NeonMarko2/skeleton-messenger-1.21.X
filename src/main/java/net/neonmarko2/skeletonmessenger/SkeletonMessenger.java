@@ -2,6 +2,7 @@ package net.neonmarko2.skeletonmessenger;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.neonmarko2.skeletonmessenger.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +12,6 @@ public class SkeletonMessenger implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
+		ModItems.registerModItems();
 	}
 }
