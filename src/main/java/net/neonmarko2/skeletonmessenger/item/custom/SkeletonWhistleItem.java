@@ -1,7 +1,7 @@
 package net.neonmarko2.skeletonmessenger.item.custom;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -48,6 +48,7 @@ public class SkeletonWhistleItem extends Item {
                 world.playSound(null, whistle_owner.getBlockPos(), SoundEvents.AMBIENT_CAVE.value(), SoundCategory.PLAYERS, 1, 1);
                 whistle_owner.sendMessage(Text.literal("Your Messenger was summoned"), true);
                 user.getItemCooldownManager().set(this, 20*5); /// MAKE THIS CONFIGURABLE IN GAME
+                user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20*5, 1));
             }
         }
         return TypedActionResult.success(itemStack, false);
