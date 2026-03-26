@@ -50,6 +50,17 @@ public class SkeletonMessengerEntity extends MobEntity{
         super.tick();
     }
 
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
+
+    @Override
+    public boolean damage(DamageSource source, float amount) {
+        return false;
+    }
+
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         var currentPlayerStack = player.getStackInHand(hand);
