@@ -19,28 +19,27 @@ public class SkeletonMessengerModel<T extends SkeletonMessengerEntity> extends S
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData root = modelPartData.addChild("root", ModelPartBuilder.create().uv(42, 40).cuboid(-1.0F, 1.0F, 0.0F, 2.0F, 6.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 3.0F, 2.0F));
+        ModelPartData root = modelPartData.addChild("root", ModelPartBuilder.create().uv(84, 80).cuboid(-2.0F, 2.0F, 0.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -18.0F, 2.0F));
 
-        ModelPartData pelvis = root.addChild("pelvis", ModelPartBuilder.create().uv(24, 14).cuboid(-4.0F, -1.0F, -4.0F, 8.0F, 3.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 7.0F, 0.0F));
+        ModelPartData pelvis = root.addChild("pelvis", ModelPartBuilder.create().uv(48, 28).cuboid(-8.0F, -2.0F, -8.0F, 16.0F, 6.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 14.0F, 0.0F));
 
-        ModelPartData left_leg = pelvis.addChild("left_leg", ModelPartBuilder.create().uv(40, 0).cuboid(-1.0F, 0.0F, -2.0F, 3.0F, 6.0F, 4.0F, new Dilation(0.0F))
-                .uv(38, 21).cuboid(-1.0F, 6.0F, -2.0F, 3.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(2.0F, 2.0F, -2.0F));
+        ModelPartData left_leg = pelvis.addChild("left_leg", ModelPartBuilder.create().uv(80, 0).cuboid(-2.0F, 0.0F, -4.0F, 6.0F, 12.0F, 8.0F, new Dilation(0.0F))
+                .uv(76, 42).cuboid(-2.0F, 12.0F, -4.0F, 6.0F, 12.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(4.0F, 4.0F, -4.0F));
 
-        ModelPartData right_leg = pelvis.addChild("right_leg", ModelPartBuilder.create().uv(0, 38).cuboid(-2.0F, 0.0F, -2.0F, 3.0F, 6.0F, 4.0F, new Dilation(0.0F))
-                .uv(28, 33).cuboid(-2.0F, 6.0F, -2.0F, 3.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 2.0F, -2.0F));
+        ModelPartData right_leg = pelvis.addChild("right_leg", ModelPartBuilder.create().uv(0, 76).cuboid(-4.0F, 0.0F, -4.0F, 6.0F, 12.0F, 8.0F, new Dilation(0.0F))
+                .uv(56, 66).cuboid(-4.0F, 12.0F, -4.0F, 6.0F, 12.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(-4.0F, 4.0F, -4.0F));
 
-        ModelPartData upper_spine = root.addChild("upper_spine", ModelPartBuilder.create().uv(42, 31).cuboid(-1.0F, -7.0F, -1.0F, 2.0F, 7.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 1.0F, 1.0F));
+        ModelPartData upper_spine = root.addChild("upper_spine", ModelPartBuilder.create().uv(84, 62).cuboid(-2.0F, -14.0F, -2.0F, 4.0F, 14.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 2.0F, 2.0F));
 
-        ModelPartData upperbody = upper_spine.addChild("upperbody", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, 0.0F, -5.0F, 8.0F, 9.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -6.0F, -1.0F));
+        ModelPartData upperbody = upper_spine.addChild("upperbody", ModelPartBuilder.create().uv(0, 0).cuboid(-8.0F, 0.0F, -10.0F, 16.0F, 18.0F, 10.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -12.0F, -2.0F));
 
-        ModelPartData left_arm = upperbody.addChild("left_arm", ModelPartBuilder.create().uv(0, 26).cuboid(0.0F, 0.0F, -2.0F, 3.0F, 8.0F, 4.0F, new Dilation(0.0F))
-                .uv(14, 33).cuboid(0.0F, 8.0F, -2.0F, 3.0F, 8.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(4.0F, 0.0F, -2.0F));
+        ModelPartData left_arm = upperbody.addChild("left_arm", ModelPartBuilder.create().uv(0, 52).cuboid(0.0F, 0.0F, -4.0F, 6.0F, 16.0F, 8.0F, new Dilation(0.0F))
+                .uv(28, 66).cuboid(0.0F, 16.0F, -4.0F, 6.0F, 16.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(8.0F, 0.0F, -4.0F));
 
-        ModelPartData right_arm = upperbody.addChild("right_arm", ModelPartBuilder.create().uv(24, 21).cuboid(-3.0F, 0.0F, -2.0F, 3.0F, 8.0F, 4.0F, new Dilation(0.0F))
-                .uv(26, 0).cuboid(-3.0F, 8.0F, -2.0F, 3.0F, 8.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-4.0F, 0.0F, -2.0F));
+        ModelPartData right_arm = upperbody.addChild("right_arm", ModelPartBuilder.create().uv(48, 42).cuboid(-6.0F, 0.0F, -4.0F, 6.0F, 16.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(-8.0F, 0.0F, -4.0F));
 
-        ModelPartData head = upper_spine.addChild("head", ModelPartBuilder.create().uv(0, 14).cuboid(-3.0F, -6.0F, -5.0F, 6.0F, 6.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -7.0F, -1.0F));
-        return TexturedModelData.of(modelData, 64, 64);
+        ModelPartData head = upper_spine.addChild("head", ModelPartBuilder.create().uv(0, 28).cuboid(-6.0F, -12.0F, -10.0F, 12.0F, 12.0F, 12.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -14.0F, -2.0F));
+        return TexturedModelData.of(modelData, 128, 128);
     }
     @Override
     public void setAngles(SkeletonMessengerEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
