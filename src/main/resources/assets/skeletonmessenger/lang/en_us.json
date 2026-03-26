@@ -1,4 +1,13 @@
 {
   "item.skeletonmessenger.skeleton_whistle": "Skeleton Whistle",
-  "item.skeletonmessenger.skeleton_whistle_omni": "Omega Skeleton Whistle"
+  "item.skeletonmessenger.skeleton_whistle_omni": "Omega Skeleton Whistle",
+
+  "tooltip.skeletonmessenger.skeleton_whistle.default": "Hold [shift] for extra info",
+  "tooltip.skeletonmessenger.skeleton_whistle.expanded1": "Right click to summon the Messenger",
+  "tooltip.skeletonmessenger.skeleton_whistle.expanded2": "Right click the Messenger with a Player or Mail Address",
+  "tooltip.skeletonmessenger.skeleton_whistle.expanded3": "Then right click the Messenger with any item to send it",
+  "tooltip.skeletonmessenger.skeleton_whistle.expanded4": "You can also target a player without a Player Address by",
+  "tooltip.skeletonmessenger.skeleton_whistle.expanded5": "Shift right clicking them with the whistle",
+
+  "entity.skeletonmessenger.skeletonmessenger": "Skeleton Messenger"
 }
