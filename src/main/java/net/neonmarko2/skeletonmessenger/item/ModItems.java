@@ -7,9 +7,10 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.neonmarko2.skeletonmessenger.SkeletonMessenger;
+import net.neonmarko2.skeletonmessenger.item.custom.SkeletonWhistleItem;
 
 public class ModItems {
-    public static final Item SKELETON_WHISTLE = registerItem("skeleton_whistle", new Item(new Item.Settings()));
+    public static final Item SKELETON_WHISTLE = registerItem("skeleton_whistle", new SkeletonWhistleItem(new Item.Settings().maxCount(1)));
     public static final Item SKELETON_WHISTLE_OMNI = registerItem("skeleton_whistle_omni", new Item(new Item.Settings()));
 
     private static Item registerItem(String name, Item item){
