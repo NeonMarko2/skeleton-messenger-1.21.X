@@ -48,7 +48,9 @@ public class SkeletonWhistleItem extends Item {
                 skeletonMessenger.caller = user;
                 skeletonMessenger.owner = whistle_owner;
                 world.spawnEntity(skeletonMessenger);
-                world.playSound(null, whistle_owner.getBlockPos(), SoundEvents.AMBIENT_CAVE.value(), SoundCategory.PLAYERS, 1, 1);
+                world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_RESPAWN_ANCHOR_SET_SPAWN, SoundCategory.PLAYERS, 1, 1);
+                world.playSound(null, user.getBlockPos(), SoundEvents.AMBIENT_CAVE.value(), SoundCategory.PLAYERS, 1, 1);
+                whistle_owner.getWorld().playSound(null, whistle_owner.getBlockPos(), SoundEvents.AMBIENT_CAVE.value(), SoundCategory.PLAYERS, 1, 1);
                 whistle_owner.sendMessage(Text.translatable("skeletonmessenger.popup.summoned"), true);
                 user.getItemCooldownManager().set(this, 20*5); /// MAKE THIS CONFIGURABLE IN GAME
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20*5, 1));
