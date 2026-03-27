@@ -1,13 +1,15 @@
 {
-  "item.skeletonmessenger.skeleton_whistle": "Skeleton Whistle",
+  "item.skeletonmessenger.skeleton_whistle": "§6Skeleton Whistle",
   "item.skeletonmessenger.skeleton_whistle_omni": "Omega Skeleton Whistle",
 
   "tooltip.skeletonmessenger.skeleton_whistle.default": "Hold [shift] for extra info",
-  "tooltip.skeletonmessenger.skeleton_whistle.expanded1": "Right click to summon the Messenger",
-  "tooltip.skeletonmessenger.skeleton_whistle.expanded2": "Right click the Messenger with a Player or Mail Address",
-  "tooltip.skeletonmessenger.skeleton_whistle.expanded3": "Then right click the Messenger with any item to send it",
-  "tooltip.skeletonmessenger.skeleton_whistle.expanded4": "You can also target a player without a Player Address by",
-  "tooltip.skeletonmessenger.skeleton_whistle.expanded5": "Shift right clicking them with the whistle",
+  "tooltip.skeletonmessenger.skeleton_whistle.unbound": "§7Not bound",
+  "tooltip.skeletonmessenger.skeleton_whistle.name_fetch_fail": "§8Couldn't fetch player name",
+
+  "skeletonmessenger.popup.summoned": "Your messenger was summoned",
+  "skeletonmessenger.popup.firstuse": "This whistle is bound to you",
+  "skeletonmessenger.popup.offline": "Player is offline",
+  "skeletonmessenger.popup.busy": "Messenger is busy",
 
   "entity.skeletonmessenger.skeletonmessenger": "Skeleton Messenger"
 }
