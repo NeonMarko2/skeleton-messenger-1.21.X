@@ -39,7 +39,7 @@ public class SkeletonWhistleItem extends Item {
                     user.sendMessage(Text.translatable("skeletonmessenger.popup.offline"), true);
                     return TypedActionResult.fail(itemStack);
                 }
-                var whistle_owner = world.getPlayerByUuid(player_uuid);
+                var whistle_owner = world.getServer().getPlayerManager().getPlayer(player_uuid);
                 SkeletonMessengerEntity skeletonMessenger = new SkeletonMessengerEntity(ModEntities.SKELETON_MESSENGER, world);
                 var playerFacing = user.getEyePos().add(user.getRotationVec(1.0f).multiply(2));
                 var skeletonSpawnPosition = new Vec3d(playerFacing.x, user.getY(), playerFacing.z);
