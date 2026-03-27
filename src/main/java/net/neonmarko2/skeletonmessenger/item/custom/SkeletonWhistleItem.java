@@ -30,7 +30,7 @@ public class SkeletonWhistleItem extends Item {
         if(!world.isClient()){
             var player_uuid = itemStack.get(ModDataComponentTypes.OWNER_UUID);
             if(player_uuid == null){
-                world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_CREEPER_HURT, SoundCategory.PLAYERS);
+                world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_AMETHYST_BLOCK_RESONATE, SoundCategory.PLAYERS);
                 itemStack.set(ModDataComponentTypes.OWNER_UUID, user.getUuid());
                 itemStack.set(ModDataComponentTypes.OWNER_NAME, user.getName().getString());
                 user.sendMessage(Text.translatable("skeletonmessenger.popup.firstuse"), true);
