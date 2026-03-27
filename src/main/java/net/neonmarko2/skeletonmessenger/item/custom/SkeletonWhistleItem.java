@@ -9,7 +9,6 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -28,10 +27,10 @@ public class SkeletonWhistleItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if(!world.isClient()){
-            var player_uuid = itemStack.get(ModDataComponentTypes.TARGET_UUID);
+            var player_uuid = itemStack.get(ModDataComponentTypes.OWNER_UUID);
             if(player_uuid == null){
                 world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_CREEPER_HURT, SoundCategory.PLAYERS);
-                itemStack.set(ModDataComponentTypes.TARGET_UUID, user.getUuid());
+                itemStack.set(ModDataComponentTypes.OWNER_UUID, user.getUuid());
                 user.sendMessage(Text.literal("This whistle is now bound to you. . ."), true);
             }else{
                 if(world.getServer().getPlayerManager().getPlayer(player_uuid) == null){
@@ -56,8 +55,8 @@ public class SkeletonWhistleItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if(stack.get(ModDataComponentTypes.TARGET_UUID) != null){
-            tooltip.add(Text.literal(stack.get(ModDataComponentTypes.TARGET_UUID).toString()));
+        if(stack.get(ModDataComponentTypes.OWNER_UUID) != null){
+            tooltip.add(Text.literal(stack.get(ModDataComponentTypes.OWNER_UUID).toString()));
         }else{
             tooltip.add(Text.literal("Not bound"));
         }
