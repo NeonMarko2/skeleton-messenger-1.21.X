@@ -1,5 +1,6 @@
 package net.neonmarko2.skeletonmessenger.component;
 
+import com.mojang.serialization.Codec;
 import net.minecraft.component.ComponentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -12,6 +13,7 @@ import java.util.function.UnaryOperator;
 
 public class ModDataComponentTypes {
     public static final ComponentType<UUID> OWNER_UUID = register("owner_uuid", builder -> builder.codec(Uuids.CODEC));
+    public static final ComponentType<String> OWNER_NAME = register("owner_name", builder -> builder.codec(Codec.STRING));
 
     private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderUnaryOperator){
         return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(SkeletonMessenger.MOD_ID, name),
