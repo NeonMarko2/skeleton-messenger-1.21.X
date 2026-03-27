@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.neonmarko2.skeletonmessenger.component.ModDataComponentTypes;
 import net.neonmarko2.skeletonmessenger.entity.ModEntities;
@@ -31,21 +32,24 @@ public class SkeletonWhistleItem extends Item {
             if(player_uuid == null){
                 world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_CREEPER_HURT, SoundCategory.PLAYERS);
                 itemStack.set(ModDataComponentTypes.OWNER_UUID, user.getUuid());
-                user.sendMessage(Text.literal("This whistle is now bound to you. . ."), true);
+                itemStack.set(ModDataComponentTypes.OWNER_NAME, user.getName().getString());
+                user.sendMessage(Text.translatable("skeletonmessenger.popup.firstuse"), true);
             }else{
                 if(world.getServer().getPlayerManager().getPlayer(player_uuid) == null){
-                    user.sendMessage(Text.literal("Player is offline"), true);
+                    user.sendMessage(Text.translatable("skeletonmessenger.popup.offline"), true);
                     return TypedActionResult.fail(itemStack);
                 }
                 var whistle_owner = world.getPlayerByUuid(player_uuid);
-                user.sendMessage(Text.literal(whistle_owner.getName().toString()), false);
                 SkeletonMessengerEntity skeletonMessenger = new SkeletonMessengerEntity(ModEntities.SKELETON_MESSENGER, world);
-                skeletonMessenger.setPosition(user.getX(), user.getY(), user.getZ());
+                var playerFacing = user.getEyePos().add(user.getRotationVec(1.0f).multiply(2));
+                var skeletonSpawnPosition = new Vec3d(playerFacing.x, user.getY(), playerFacing.z);
+                skeletonMessenger.setPosition(skeletonSpawnPosition);
+                skeletonMessenger.FaceEntityInstantly(user);
                 skeletonMessenger.caller = user;
                 skeletonMessenger.owner = whistle_owner;
                 world.spawnEntity(skeletonMessenger);
                 world.playSound(null, whistle_owner.getBlockPos(), SoundEvents.AMBIENT_CAVE.value(), SoundCategory.PLAYERS, 1, 1);
-                whistle_owner.sendMessage(Text.literal("Your Messenger was summoned"), true);
+                whistle_owner.sendMessage(Text.translatable("skeletonmessenger.popup.summoned"), true);
                 user.getItemCooldownManager().set(this, 20*5); /// MAKE THIS CONFIGURABLE IN GAME
                 user.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20*5, 1));
             }
@@ -56,9 +60,12 @@ public class SkeletonWhistleItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if(stack.get(ModDataComponentTypes.OWNER_UUID) != null){
-            tooltip.add(Text.literal(stack.get(ModDataComponentTypes.OWNER_UUID).toString()));
+            if (stack.get(ModDataComponentTypes.OWNER_NAME) == null){
+                tooltip.add(Text.translatable("tooltip.skeletonmessenger.skeleton_whistle.name_fetch_fail"));
+            }else
+                tooltip.add(Text.literal(stack.get(ModDataComponentTypes.OWNER_NAME)));
         }else{
-            tooltip.add(Text.literal("Not bound"));
+            tooltip.add(Text.translatable("tooltip.skeletonmessenger.skeleton_whistle.unbound"));
         }
         super.appendTooltip(stack, context, tooltip, type);
     }
